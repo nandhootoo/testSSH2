@@ -1,0 +1,41 @@
+
+/* A CSS Framework by Mike Stenhouse of Content with Style               */ 
+/* This is the default layout-navtop-localleft.css file                  */ 
+/* Alterations done by Struts2Builder                                    */ 
+/* Reason for alteration:                                                */ 
+/*    The struts-default project creates a default width of 800 pixels.  */ 
+/*    That looks cramped on a modern 1280x1024 display.                  */ 
+/*    So we want to widen that substantially.                            */ 
+/*    Here is where we do it.                                            */ 
+/*    If you want to change the width for your screen,                   */ 
+/*       change the "width: 1100px" to a different value.                */ 
+@import url("nav-horizontal.css"); 
+	/* NAV BAR AT THE TOP, LOCAL NAVIGATION ON THE LEFT AND ONE COLUMN OF CONTENT */
+	    div#content {
+	        position: relative;
+	        width: 1100px;
+	        margin: 0 auto 20px auto;
+	        padding: 0;
+	        text-align: left;
+	    }
+	    div#main {
+	        float: right;
+	        width: 85%;
+	        display: inline;
+	    }
+	    div#local {
+	        float: left;
+	        width: 15%;
+	        display: inline;
+	    }
+	    div#sub {
+	        display: none;
+	    }
+	    div#nav {
+	        position: absolute;
+	        top: -15px;
+	        left: 0;
+	        width: 100%;
+	        text-align: left;
+	    }
+	/* END CONTENT */ 

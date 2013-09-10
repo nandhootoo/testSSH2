@@ -1,0 +1,134 @@
+
+/* A CSS Framework by Mike Stenhouse of Content with Style           */ 
+/* This is the default layout.css file                               */ 
+/* Alteration done by Struts2Builder                                 */ 
+/* Reasons for alteration:                                           */ 
+/*    We think the black header and footer bars look cheezy.         */ 
+/*    We want to replace them with DodgerBlue.                       */ 
+/*    Also replacing the white text in those bars with yellow.       */ 
+/*    Here is where we do all that.                                  */ 
+/*    If you want to change to a different color,                    */ 
+/*       look for the "HEADER" and "FOOTER" tags below               */ 
+/*       and replace "dodgerBlue" with whatever color you prefer.    */ 
+/* SITE SPECIFIC LAYOUT  					     */   
+ body {   
+    margin: 0;   
+    padding: 0;      
+    background: white;   
+             
+    text-align: center;   
+ }   
+ div#page {   
+    width: 1100px;   
+       
+    margin:  0 auto;   
+    padding: 0;   
+       
+    background: white;   
+    text-align: center;   
+}   
+   
+/* HEADER */   
+    div#header {   
+        margin: 0 0 5em 0;   
+        padding: 40px 20px;   
+           
+        color: yellow;   
+        background: dodgerBlue;   
+           
+        text-align: left;   
+    }   
+    div#branding {   
+        float: left;   
+        width: 40%;   
+           
+        margin: 0;   
+        padding: 10px 0 10px 20px;   
+           
+        text-align: left;   
+    }   
+    div#search {   
+       float: right;   
+        width: 49%;   
+           
+        margin: 0;   
+        padding: 16px 20px 0 0;   
+           
+        text-align: right;   
+    }   
+/* END HEADER */   
+    
+    
+ /* CONTENT */   
+     div#content {   
+            
+     }   
+        
+     /* MAIN */   
+         div#main {   
+                
+         }   
+     /* END MAIN */   
+        
+     /* SUB */   
+         div#sub {   
+                
+         }   
+     /* END SUB */   
+        
+ /* END CONTENT */   
+    
+    
+ /* FOOTER */   
+     div#footer {   
+         color: yellow;   
+         background-color: dodgerBlue;   
+     }   
+     div#footer p {   
+         font-size: 0.8em;   
+            
+         margin: 0;   
+         padding: 15px;   
+     }   
+ /* END FOOTER */   
+/* END LAYOUT */   
+   
+   
+   
+   
+/* UL.SUBNAV */   
+    ul.subnav {   
+        margin: 0;   
+        padding: 0;    
+        
+        font-size: 0.8em;
+        list-style: none;  
+    }  
+    ul.subnav li { 
+        margin: 0 0 1em 0; 
+        padding: 0; 
+        list-style: none; 
+    } 
+    ul.subnav li a, 
+    ul.subnav li a:link, 
+    ul.subnav li a:visited, 
+    ul.subnav li a:active { 
+        text-decoration: none; 
+        font-weight: bold; 
+        color: black; 
+    } 
+    ul.subnav li a:hover { 
+        text-decoration: underline; 
+    } 
+    ul.subnav li strong {  
+        padding: 0 0 0 12px; 
+        background: url("../i/subnav-highlight.gif") left top no-repeat transparent; 
+    }  
+    ul.subnav li strong a, 
+    ul.subnav li strong a:link, 
+    ul.subnav li strong a:visited, 
+    ul.subnav li strong a:active { 
+        color: white; 
+        background-color: black; 
+   } 
+/* END UL.SUBNAV */ 

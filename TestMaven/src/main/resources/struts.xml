@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+
+<!DOCTYPE struts PUBLIC 
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts> 
+<constant name="struts.objectFactory" value="spring" /> 
+<constant name="struts.devMode" value="true" /> 
+	<package name="com.nandhootoo" extends="struts-default"> 
+	<action name="index" class="com.nandhootoo.actions.MainApplicationAction">  
+		<result name="start">/jsp/mainApplication.jsp</result>   
+		<result name="refresh">/jsp/index.jsp</result>
+	</action>   
+
+		<action name="mainApplication" 				class="com.nandhootoo.actions.MainApplicationAction">
+			<result name="department">/jsp/departmentList.jsp</result>
+			<result name="issue">/jsp/issueList.jsp</result>
+			<result name="note">/jsp/noteList.jsp</result>
+			<result name="product">/jsp/productList.jsp</result>
+			<result name="status">/jsp/statusList.jsp</result>
+			<result name="user">/jsp/userList.jsp</result>
+			<result name="refresh">/jsp/mainApplication.jsp</result>
+			<result>/jsp/mainApplication.jsp</result>
+		</action>
+ 
+		<action name="departmentList" 		class="com.nandhootoo.actions.DepartmentListAction">
+			<result name="input">/jsp/departmentList.jsp</result>
+			<result name="refresh">/jsp/departmentList.jsp</result>
+			<result name="editSingle" type="redirectAction">
+				<param name="actionName">departmentEdit</param>
+				<param name="method">input</param>
+			</result>
+			<result name="returnToMainApp">/jsp/mainApplication.jsp</result>
+			<result>/jsp/departmentList.jsp</result>
+		</action>
+		<action name="departmentDisplay" 		class="com.nandhootoo.actions.DepartmentDisplayAction">
+			<result name="input">/jsp/departmentDisplay.jsp</result>
+			<result name="edit" type="redirectAction">
+				<param name="actionName">departmentEdit</param>
+				<param name="method">input</param>
+			</result>
+			<result name="refresh">/jsp/departmentDisplay.jsp</result>
+			<result name="returnToList">/jsp/departmentList.jsp</result>
+			<result>/jsp/departmentDisplay.jsp</result>
+		</action>
+		<action name="departmentEdit" 		class="com.nandhootoo.actions.DepartmentEditAction">
+			<result name="input">/jsp/departmentEdit.jsp</result>
+			<result name="save">/jsp/departmentEdit.jsp</result>
+			<result name="returnToList">/jsp/departmentList.jsp</result>
+			<result name="cancel" type="redirectAction">
+				<param name="actionName">departmentList</param>
+				<param name="method">input</param>
+				<param name="index">index</param>
+			</result>
+			<result>/jsp/departmentEdit.jsp</result>
+		</action>
+		<action name="departmentListActionDisplay" 		class="com.nandhootoo.actions.DepartmentListAction" method="display" >
+			<result name="displaySingle">/jsp/departmentDisplay.jsp</result>
+		</action>
+		<action name="departmentListActionEdit" 		class="com.nandhootoo.actions.DepartmentListAction" method="edit" >
+			<result name="editSingle" type="redirectAction">
+				<param name="actionName">departmentEdit</param>
+				<param name="method">input</param>
+			</result>
+		</action>
+		<action name="departmentListActionRemove" 		class="com.nandhootoo.actions.DepartmentListAction" method="remove" >
+			<result name="success">/jsp/departmentList.jsp</result>
+		</action>
+ 
+		<action name="issueList" 		class="com.nandhootoo.actions.IssueListAction">
+			<result name="input">/jsp/issueList.jsp</result>
+			<result name="refresh">/jsp/issueList.jsp</result>
+			<result name="editSingle" type="redirectAction">
+				<param name="actionName">issueEdit</param>
+				<param name="method">input</param>
+			</result>
+			<result name="returnToMainApp">/jsp/mainApplication.jsp</result>
+			<result>/jsp/issueList.jsp</result>
+		</action>
+		<action name="issueDisplay" 		class="com.nandhootoo.actions.IssueDisplayAction">
+			<result name="input">/jsp/issueDisplay.jsp</result>
+			<result name="edit" type="redirectAction">
+				<param name="actionName">issueEdit</param>
+				<param name="method">input</param>
+			</result>
+			<result name="refresh">/jsp/issueDisplay.jsp</result>
+			<result name="returnToList">/jsp/issueList.jsp</result>
+			<result>/jsp/issueDisplay.jsp</result>
+		</action>
+		<action name="issueEdit" 		class="com.nandhootoo.actions.IssueEditAction">
+			<result name="input">/jsp/issueEdit.jsp</result>
+			<result name="save">/jsp/issueEdit.jsp</result>
+			<result name="returnToList">/jsp/issueList.jsp</result>
+			<result name="cancel" type="redirectAction">
+				<param name="actionName">issueList</param>
+				<param name="method">input</param>
+				<param name="index">index</param>
+			</result>
+			<result>/jsp/issueEdit.jsp</result>
+		</action>
+		<action name="issueListActionDisplay" 		class="com.nandhootoo.actions.IssueListAction" method="display" >
+			<result name="displaySingle">/jsp/issueDisplay.jsp</result>
+		</action>
+		<action name="issueListActionEdit" 		class="com.nandhootoo.actions.IssueListAction" method="edit" >
+			<result name="editSingle" type="redirectAction">
+				<param name="actionName">issueEdit</param>
+				<param name="method">input</param>
+			</result>
+		</action>
+		<action name="issueListActionRemove" 		class="com.nandhootoo.actions.IssueListAction" method="remove" >
+			<result name="success">/jsp/issueList.jsp</result>
+		</action>
+ 
+		<action name="noteList" 		class="com.nandhootoo.actions.NoteListAction">
+			<result name="input">/jsp/noteList.jsp</result>
+			<result name="refresh">/jsp/noteList.jsp</result>
+			<result name="editSingle" type="redirectAction">
+				<param name="actionName">noteEdit</param>
+				<param name="method">input</param>
+			</result>
+			<result name="returnToMainApp">/jsp/mainApplication.jsp</result>
+			<result>/jsp/noteList.jsp</result>
+		</action>
+		<action name="noteDisplay" 		class="com.nandhootoo.actions.NoteDisplayAction">
+			<result name="input">/jsp/noteDisplay.jsp</result>
+			<result name="edit" type="redirectAction">
+				<param name="actionName">noteEdit</param>
+				<param name="method">input</param>
+			</result>
+			<result name="refresh">/jsp/noteDisplay.jsp</result>
+			<result name="returnToList">/jsp/noteList.jsp</result>
+			<result>/jsp/noteDisplay.jsp</result>
+		</action>
+		<action name="noteEdit" 		class="com.nandhootoo.actions.NoteEditAction">
+			<result name="input">/jsp/noteEdit.jsp</result>
+			<result name="save">/jsp/noteEdit.jsp</result>
+			<result name="returnToList">/jsp/noteList.jsp</result>
+			<result name="cancel" type="redirectAction">
+				<param name="actionName">noteList</param>
+				<param name="method">input</param>
+				<param name="index">index</param>
+			</result>
+			<result>/jsp/noteEdit.jsp</result>
+		</action>
+		<action name="noteListActionDisplay" 		class="com.nandhootoo.actions.NoteListAction" method="display" >
+			<result name="displaySingle">/jsp/noteDisplay.jsp</result>
+		</action>
+		<action name="noteListActionEdit" 		class="com.nandhootoo.actions.NoteListAction" method="edit" >
+			<result name="editSingle" type="redirectAction">
+				<param name="actionName">noteEdit</param>
+				<param name="method">input</param>
+			</result>
+		</action>
+		<action name="noteListActionRemove" 		class="com.nandhootoo.actions.NoteListAction" method="remove" >
+			<result name="success">/jsp/noteList.jsp</result>
+		</action>
+ 
+		<action name="productList" 		class="com.nandhootoo.actions.ProductListAction">
+			<result name="input">/jsp/productList.jsp</result>
+			<result name="refresh">/jsp/productList.jsp</result>
+			<result name="editSingle" type="redirectAction">
+				<param name="actionName">productEdit</param>
+				<param name="method">input</param>
+			</result>
+			<result name="returnToMainApp">/jsp/mainApplication.jsp</result>
+			<result>/jsp/productList.jsp</result>
+		</action>
+		<action name="productDisplay" 		class="com.nandhootoo.actions.ProductDisplayAction">
+			<result name="input">/jsp/productDisplay.jsp</result>
+			<result name="edit" type="redirectAction">
+				<param name="actionName">productEdit</param>
+				<param name="method">input</param>
+			</result>
+			<result name="refresh">/jsp/productDisplay.jsp</result>
+			<result name="returnToList">/jsp/productList.jsp</result>
+			<result>/jsp/productDisplay.jsp</result>
+		</action>
+		<action name="productEdit" 		class="com.nandhootoo.actions.ProductEditAction">
+			<result name="input">/jsp/productEdit.jsp</result>
+			<result name="save">/jsp/productEdit.jsp</result>
+			<result name="returnToList">/jsp/productList.jsp</result>
+			<result name="cancel" type="redirectAction">
+				<param name="actionName">productList</param>
+				<param name="method">input</param>
+				<param name="index">index</param>
+			</result>
+			<result>/jsp/productEdit.jsp</result>
+		</action>
+		<action name="productListActionDisplay" 		class="com.nandhootoo.actions.ProductListAction" method="display" >
+			<result name="displaySingle">/jsp/productDisplay.jsp</result>
+		</action>
+		<action name="productListActionEdit" 		class="com.nandhootoo.actions.ProductListAction" method="edit" >
+			<result name="editSingle" type="redirectAction">
+				<param name="actionName">productEdit</param>
+				<param name="method">input</param>
+			</result>
+		</action>
+		<action name="productListActionRemove" 		class="com.nandhootoo.actions.ProductListAction" method="remove" >
+			<result name="success">/jsp/productList.jsp</result>
+		</action>
+ 
+		<action name="statusList" 		class="com.nandhootoo.actions.StatusListAction">
+			<result name="input">/jsp/statusList.jsp</result>
+			<result name="refresh">/jsp/statusList.jsp</result>
+			<result name="editSingle" type="redirectAction">
+				<param name="actionName">statusEdit</param>
+				<param name="method">input</param>
+			</result>
+			<result name="returnToMainApp">/jsp/mainApplication.jsp</result>
+			<result>/jsp/statusList.jsp</result>
+		</action>
+		<action name="statusDisplay" 		class="com.nandhootoo.actions.StatusDisplayAction">
+			<result name="input">/jsp/statusDisplay.jsp</result>
+			<result name="edit" type="redirectAction">
+				<param name="actionName">statusEdit</param>
+				<param name="method">input</param>
+			</result>
+			<result name="refresh">/jsp/statusDisplay.jsp</result>
+			<result name="returnToList">/jsp/statusList.jsp</result>
+			<result>/jsp/statusDisplay.jsp</result>
+		</action>
+		<action name="statusEdit" 		class="com.nandhootoo.actions.StatusEditAction">
+			<result name="input">/jsp/statusEdit.jsp</result>
+			<result name="save">/jsp/statusEdit.jsp</result>
+			<result name="returnToList">/jsp/statusList.jsp</result>
+			<result name="cancel" type="redirectAction">
+				<param name="actionName">statusList</param>
+				<param name="method">input</param>
+				<param name="index">index</param>
+			</result>
+			<result>/jsp/statusEdit.jsp</result>
+		</action>
+		<action name="statusListActionDisplay" 		class="com.nandhootoo.actions.StatusListAction" method="display" >
+			<result name="displaySingle">/jsp/statusDisplay.jsp</result>
+		</action>
+		<action name="statusListActionEdit" 		class="com.nandhootoo.actions.StatusListAction" method="edit" >
+			<result name="editSingle" type="redirectAction">
+				<param name="actionName">statusEdit</param>
+				<param name="method">input</param>
+			</result>
+		</action>
+		<action name="statusListActionRemove" 		class="com.nandhootoo.actions.StatusListAction" method="remove" >
+			<result name="success">/jsp/statusList.jsp</result>
+		</action>
+ 
+		<action name="userList" 		class="com.nandhootoo.actions.UserListAction">
+			<result name="input">/jsp/userList.jsp</result>
+			<result name="refresh">/jsp/userList.jsp</result>
+			<result name="editSingle" type="redirectAction">
+				<param name="actionName">userEdit</param>
+				<param name="method">input</param>
+			</result>
+			<result name="returnToMainApp">/jsp/mainApplication.jsp</result>
+			<result>/jsp/userList.jsp</result>
+		</action>
+		<action name="userDisplay" 		class="com.nandhootoo.actions.UserDisplayAction">
+			<result name="input">/jsp/userDisplay.jsp</result>
+			<result name="edit" type="redirectAction">
+				<param name="actionName">userEdit</param>
+				<param name="method">input</param>
+			</result>
+			<result name="refresh">/jsp/userDisplay.jsp</result>
+			<result name="returnToList">/jsp/userList.jsp</result>
+			<result>/jsp/userDisplay.jsp</result>
+		</action>
+		<action name="userEdit" 		class="com.nandhootoo.actions.UserEditAction">
+			<result name="input">/jsp/userEdit.jsp</result>
+			<result name="save">/jsp/userEdit.jsp</result>
+			<result name="returnToList">/jsp/userList.jsp</result>
+			<result name="cancel" type="redirectAction">
+				<param name="actionName">userList</param>
+				<param name="method">input</param>
+				<param name="index">index</param>
+			</result>
+			<result>/jsp/userEdit.jsp</result>
+		</action>
+		<action name="userListActionDisplay" 		class="com.nandhootoo.actions.UserListAction" method="display" >
+			<result name="displaySingle">/jsp/userDisplay.jsp</result>
+		</action>
+		<action name="userListActionEdit" 		class="com.nandhootoo.actions.UserListAction" method="edit" >
+			<result name="editSingle" type="redirectAction">
+				<param name="actionName">userEdit</param>
+				<param name="method">input</param>
+			</result>
+		</action>
+		<action name="userListActionRemove" 		class="com.nandhootoo.actions.UserListAction" method="remove" >
+			<result name="success">/jsp/userList.jsp</result>
+		</action>
+	</package>
+</struts>

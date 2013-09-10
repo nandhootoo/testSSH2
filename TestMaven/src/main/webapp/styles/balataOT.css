@@ -1,0 +1,49 @@
+
+	table.balataOT {				
+		font-family					: Verdana, Arial, sans-serif ;
+		font-size					: 12px ;
+	}			
+				
+				
+	table.balataOT td {			
+		font-weight					: normal ;
+	}			
+				
+				
+	table.balataOT tr {			
+		background-color				: wheat ;
+		color						: black 
+	}			
+				
+				
+	table.balataOT th {			
+		text-align					: center ;
+		background-color				: #008000 ;
+		color						: white 
+	}			
+				
+				
+	/* Visual and hover effects */			
+	.odd td {
+		background-color				: linen 
+	}	
+				
+	.right  {
+		text-align					: right 
+	}							
+	.center  {
+		text-align					: center 
+	}							
+				
+								
+	table.balataOT tbody tr:hover td					
+	{	background-color				: springGreen ;		
+	}						
+				
+							
+	/* =links						
+	 * ----------------------------------------------- */		
+	table.balataOT a { color: blue; text-decoration: none; }			
+	table.balataOT a:link {color: blue; text-decoration: none; }		
+	table.balataOT a:visited { color: blue; text-decoration: none; }		
+	table.balataOT a:hover { color: blue; background-color: yellow; text-decoration: underline }

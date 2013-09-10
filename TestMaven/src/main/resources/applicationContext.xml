@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop" 
+	xmlns:tx="http://www.springframework.org/schema/tx" 
+	xsi:schemaLocation=" 
+		http://www.springframework.org/schema/beans  
+		http://www.springframework.org/schema/beans/spring-beans-2.0.xsd 
+		http://www.springframework.org/schema/tx  
+		http://www.springframework.org/schema/tx/spring-tx-2.0.xsd 
+		http://www.springframework.org/schema/aop 
+		http://www.springframework.org/schema/aop/spring-aop-2.0.xsd"> 
+
+	<bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />		
+	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">	
+	   <property name="dataSource" ref="dataSource" />	
+	   <property name="jpaVendorAdapter">	
+	       <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">	
+	           <property name="database" value="MYSQL" />	
+	           <property name="showSql" value="true" />	
+	       </bean>	
+	   </property>	
+	</bean>	
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">	
+	<property name="entityManagerFactory" ref="entityManagerFactory" />	
+	    </bean>	
+	   	
+	<tx:annotation-driven transaction-manager="transactionManager" /> 
+	   	
+	<!-- DataSource MYSQL -->	
+	<bean id="dataSource"	
+	    class="org.springframework.jdbc.datasource.DriverManagerDataSource">	
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />	
+		<property name="url" value="jdbc:mysql://localhost/issues" />	
+		<property name="username" value="mooloo" />	
+		<property name="password" value="123123" />	
+	</bean>	
+	<bean id="departmentService" class="com.nandhootoo.services.DepartmentServiceImpl" />
+	<bean id="departmentAction" scope="prototype" class="com.nandhootoo.actions.DepartmentListAction"  >
+		<constructor-arg ref="departmentService" /> 
+	</bean>
+	<bean id="issueService" class="com.nandhootoo.services.IssueServiceImpl" />
+	<bean id="issueAction" scope="prototype" class="com.nandhootoo.actions.IssueListAction"  >
+		<constructor-arg ref="issueService" /> 
+	</bean>
+	<bean id="noteService" class="com.nandhootoo.services.NoteServiceImpl" />
+	<bean id="noteAction" scope="prototype" class="com.nandhootoo.actions.NoteListAction"  >
+		<constructor-arg ref="noteService" /> 
+	</bean>
+	<bean id="productService" class="com.nandhootoo.services.ProductServiceImpl" />
+	<bean id="productAction" scope="prototype" class="com.nandhootoo.actions.ProductListAction"  >
+		<constructor-arg ref="productService" /> 
+	</bean>
+	<bean id="statusService" class="com.nandhootoo.services.StatusServiceImpl" />
+	<bean id="statusAction" scope="prototype" class="com.nandhootoo.actions.StatusListAction"  >
+		<constructor-arg ref="statusService" /> 
+	</bean>
+	<bean id="userService" class="com.nandhootoo.services.UserServiceImpl" />
+	<bean id="userAction" scope="prototype" class="com.nandhootoo.actions.UserListAction"  >
+		<constructor-arg ref="userService" /> 
+	</bean>
+</beans>
